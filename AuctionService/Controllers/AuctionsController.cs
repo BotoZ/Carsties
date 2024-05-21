@@ -2,9 +2,9 @@
 using AuctionService.DTOs;
 using AuctionService.Entities;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 
 namespace AuctionService.Controllers
 {
@@ -21,21 +21,24 @@ namespace AuctionService.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<List<AuctionDto>>> GetAllAuctions() 
+        public async Task<ActionResult<List<AuctionDto>>> GetAllAuctions(string date)
         {
-            var auctions = await _context.Auctions
-                .Include(x=>x.Item)
-                .OrderBy(x=>x.Item.Make)
-                .ToListAsync();
-            return _mapper.Map<List<AuctionDto>>(auctions);
+            var query = _context.Auctions.OrderBy(x => x.Item.Make).AsQueryable();
+
+            if (!string.IsNullOrEmpty(date))
+            {
+                query = query.Where(x => x.UpdatedAt.CompareTo(DateTime.Parse(date).ToUniversalTime()) > 0);
+            }
+
+            return await query.ProjectTo<AuctionDto>(_mapper.ConfigurationProvider).ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<AuctionDto>> GetAuctionById(Guid id)
         {
             var auction = await _context.Auctions
-                .Include(x=>x.Item)
-                .FirstOrDefaultAsync(x=>x.Id==id);
+                .Include(x => x.Item)
+                .FirstOrDefaultAsync(x => x.Id == id);
             if (auction == null) return NotFound();
 
             return _mapper.Map<AuctionDto>(auction);
@@ -60,8 +63,8 @@ namespace AuctionService.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateAuction(Guid id, UpdateAuctionDto updateAuctionDto)
         {
-            var auction = await _context.Auctions.Include(x=>x.Item)
-                .FirstOrDefaultAsync(x=>x.Id==id);
+            var auction = await _context.Auctions.Include(x => x.Item)
+                .FirstOrDefaultAsync(x => x.Id == id);
             if (auction == null) return NotFound();
 
             // Todo: check seller == username
