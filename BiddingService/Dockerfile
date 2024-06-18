@@ -12,11 +12,12 @@ COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.cspr
 
 RUN dotnet restore Carsties.sln
 
-COPY GatewayService GatewayService
-WORKDIR /app/GatewayService
+COPY BiddingService BiddingService
+COPY Contracts Contracts
+WORKDIR /app/BiddingService
 RUN dotnet publish -c Release -o /app/out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
-ENTRYPOINT [ "dotnet", "GatewayService.dll" ]
+ENTRYPOINT [ "dotnet", "BiddingService.dll" ]
