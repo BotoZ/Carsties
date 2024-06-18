@@ -7,6 +7,7 @@ COPY AuctionService/AuctionService.csproj AuctionService/AuctionService.csproj
 COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
 COPY GatewayService/GatewayService.csproj GatewayService/GatewayService.csproj
 COPY BiddingService/BiddingService.csproj BiddingService/BiddingService.csproj
+COPY NotificationService/NotificationService.csproj NotificationService/NotificationService.csproj
 COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
 COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.csproj
 

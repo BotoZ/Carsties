@@ -1,5 +1,4 @@
 using BiddingService.Consumers;
-using BiddingService.Models;
 using BiddingService.Services;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
