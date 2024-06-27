@@ -111,5 +111,4 @@ services:
     ports:
       - 7004:80
     depends_on:
-      - mongodb
       - rabbitmq
