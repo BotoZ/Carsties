@@ -15,8 +15,6 @@ namespace SearchService.Controllers
         {
             var query = DB.PagedSearch<Item, Item>();
 
-            query.Sort(x => x.Ascending(a => a.Make));
-
             if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
                 query.Match(Search.Full, searchParams.SearchTerm).SortByTextScore();
@@ -26,14 +24,14 @@ namespace SearchService.Controllers
             {
                 "make" => query.Sort(x => x.Ascending(a => a.Make)).Sort(x => x.Ascending(a => a.Model)),
                 "new" => query.Sort(x => x.Descending(a => a.CreatedAt)),
-                _ => query.Sort(x => x.Ascending(a => a.AuctionEnd))
+                "endDate" => query.Sort(x => x.Ascending(a => a.AuctionEnd))
             };
 
             query = searchParams.FilterBy switch
             {
                 "finished" => query.Match(x=>x.AuctionEnd < DateTime.UtcNow),
-                "endingSoon" => query.Match(x=>x.AuctionEnd < DateTime.UtcNow.AddHours(6) && x.AuctionEnd > DateTime.UtcNow),
-                _ => query.Match(x=>x.AuctionEnd>DateTime.UtcNow)
+                "endingSoon" => query.Match(x => x.AuctionEnd < DateTime.UtcNow.AddHours(6) && x.AuctionEnd > DateTime.UtcNow),
+                "live" => query.Match(x=>x.AuctionEnd>DateTime.UtcNow)
             };
 
             if (!string.IsNullOrEmpty(searchParams.Seller))
@@ -53,7 +51,7 @@ namespace SearchService.Controllers
 
             return Ok(new 
             {
-                Results = result.Results,
+                results = result.Results,
                 pageCount = result.PageCount,
                 totalCount = result.TotalCount
             });

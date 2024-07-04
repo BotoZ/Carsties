@@ -2,7 +2,7 @@ import { useParamsStore } from '@/hooks/useParamsStore';
 import { Button } from 'flowbite-react';
 import React from 'react'
 import { AiOutlineClockCircle, AiOutlineSortAscending } from 'react-icons/ai';
-import { BsFillStopCircleFill, BsStopwatch, BsStopwatchFill } from 'react-icons/bs';
+import { BsFillStopCircleFill, BsStopwatchFill } from 'react-icons/bs';
 import { GiFinishLine, GiFlame } from 'react-icons/gi';
 
 const pageSizeButtons = [4, 8, 12];
@@ -15,7 +15,7 @@ const orderButtons = [
     {
         label: 'End date',
         icon: AiOutlineClockCircle,
-        value: 'endingSoon'
+        value: 'endDate'
     },
     {
         label: 'Recently Added',

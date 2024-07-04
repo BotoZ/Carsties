@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
 import {FaSearch} from 'react-icons/fa'
 
-export default function Seatch() {
+export default function Search() {
   const router = useRouter();
   const pathname = usePathname();
   const setParams = useParamsStore(state => state.setParams)
