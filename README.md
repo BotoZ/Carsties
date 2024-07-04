@@ -1,0 +1,33 @@
+# Build a Microservices App with .Net and NextJS from Scratch
+
+## Project Description
+
+This project was created following Neil Cummings's Udemy course, "Build a Microservices App with .Net and NextJS from Scratch." In the ever-evolving web development landscape, microservices have become a pivotal skill. This course guides you through the creation of a microservices-based auction web app for cars using .Net for backend services and Next.js for the client app. The journey begins from scratch, culminating in a deployable app that can be published to a Kubernetes cluster.
+
+## Key Features
+
+- **Backend Services**: Develop several backend services using .Net to provide core functionalities.
+- **Service Communication**: Implement RabbitMQ and gRPC for efficient service-to-service communication.
+- **Identity Management**: Utilize IdentityServer as the identity provider for authentication.
+- **Gateway Creation**: Build a gateway using Microsoft YARP to manage API traffic.
+- **Client App**: Create a client-side app with Next.js, leveraging the new App Router functionality introduced in Next.js 13.4.
+- **Real-time Updates**: Use SignalR for real-time push notifications to the client app.
+- **Dockerization**: Dockerize all services to ensure consistent and reproducible deployments.
+- **CI/CD**: Set up CI/CD workflows using GitHub Actions for streamlined development and deployment.
+- **Ingress Controllers**: Add ingress controllers to manage external access to the services.
+- **Local Deployment**: Publish the app locally using Docker Compose, avoiding the need for paid cloud services.
+
+## App Functions
+
+This auction web app for cars includes the following features:
+
+- **User Registration and Login**: Secure user registration and authentication.
+- **Auction Management**: Create and manage car auctions.
+- **Bidding System**: Place bids on auctions, with validation to prevent bidding on one's own auctions.
+- **Field Validations**: Ensure data integrity during auction creation and bidding.
+- **Pagination, Filtering, and Ordering**: Navigate and manage auction listings efficiently.
+- **Search Functionality**: Search for specific auctions.
+
+## Summary
+
+This project encapsulates modern web development practices, emphasizing microservices architecture, real-time communication, and robust authentication mechanisms. By following this course, you gain practical experience in building, deploying, and managing a sophisticated web application using cutting-edge technologies.
