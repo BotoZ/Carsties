@@ -31,3 +31,9 @@ This auction web app for cars includes the following features:
 ## Summary
 
 This project encapsulates modern web development practices, emphasizing microservices architecture, real-time communication, and robust authentication mechanisms. By following this course, you gain practical experience in building, deploying, and managing a sophisticated web application using cutting-edge technologies.
+
+## Images
+![home](https://github.com/BotoZ/Carsties/assets/164318311/62d5c14f-5975-4893-93c5-32c7236c604c)
+![my_auctions](https://github.com/BotoZ/Carsties/assets/164318311/ee7c26f3-7d77-4ddb-8cf6-00b8f5b7ad76)
+![bid](https://github.com/BotoZ/Carsties/assets/164318311/5038b50b-be27-4e77-b2c1-5d1863e27d38)
+![create_auction](https://github.com/BotoZ/Carsties/assets/164318311/3c626079-ffb9-4b5d-b77a-d5a87a94d4b0)
