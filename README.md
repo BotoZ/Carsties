@@ -1,4 +1,4 @@
-# Build a Microservices App with .Net and NextJS from Scratch
+# Car Auctions
 
 ## Project Description
 
