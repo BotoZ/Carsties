@@ -2,7 +2,8 @@
 
 ## Project Description
 
-This project was created following Neil Cummings's Udemy course, "Build a Microservices App with .Net and NextJS from Scratch." In the ever-evolving web development landscape, microservices have become a pivotal skill. This course guides you through the creation of a microservices-based auction web app for cars using .Net for backend services and Next.js for the client app. The journey begins from scratch, culminating in a deployable app that can be published to a Kubernetes cluster.
+This project was created following Neil Cummings's Udemy course, "Build a Microservices App with .Net and NextJS from Scratch." In the ever-evolving web development landscape, microservices have become a pivotal skill. 
+It's a microservices-based auction web app for cars using .Net for backend services and Next.js for the client app.
 
 ## Key Features
 
